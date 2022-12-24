@@ -2,7 +2,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const myConnection = require('express-myconnection');
 const bodyparser = require('body-parser');
 
@@ -26,12 +26,19 @@ app.set('view engine', 'ejs'); // motor de plantillas
 
 // middlewares antes del sistema de peticiones o routes
 app.use(morgan('dev'));
+// app.use(myConnection(mysql, {
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'asdasd',
+//     port:3306,
+//     database: 'crudnodejsmysql'
+// }, 'single' ));
 app.use(myConnection(mysql, {
-    host: 'localhost',
+    host: 'containers-us-west-167.railway.app',
     user: 'root',
-    password: 'asdasd',
-    port:3306,
-    database: 'crudnodejsmysql'
+    password: 'YJJH6fA7LyirCX4JWqBy',
+    port:7680,
+    database: 'railway'
 }, 'single' ));
 app.use(bodyparser.urlencoded({extended:true})); //urlencoded ahora ya viene integrado en express
 app.use(bodyparser.json());
