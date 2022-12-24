@@ -11,7 +11,7 @@ const app = express();
 
 
 // importando Rutas
-const CustomerRoutes = require('./routes/customers');
+const CustomerRoutes = require('./Routes/customers');
 
 // importando Rutas
 
